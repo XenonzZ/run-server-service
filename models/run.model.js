@@ -1,48 +1,46 @@
-const sequelize = require("sequelize");
-const db = require("./../db/db.js");
-const runner = require("./runner.model.js");
+const Sequelize = require('sequelize');
+const db = require('./../db/db.js')
 
 //สร้าง instance เพื่อแมปกับตารางในฐานข้อมูล
-const Run = db.define(
-  "run_tb",
-  {
-    runId: {
-      type: sequelize.INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
-      allowNull: false,
-      field: "run_id",
+const run = db.define('run_tb', {
+    runId:{
+        type:Sequelize.INTEGER,
+        primaryKey:true,
+        autoIncrement:true,
+        allowNull:false,
+        field:'runId'
     },
-    dateRun: {
-      type: sequelize.STRING(100),
-      allowNull: false,
-      field: "dateRun",
+    dateRun:{
+        type:Sequelize.STRING(100),
+        allowNull:false,
+         field:'dateRun'
     },
-    distanceRun: {
-      type: sequelize.DOUBLE,
-      allowNull: false,
-      field: "distanceRun",
+    distanceRun:{
+        type:Sequelize.DOUBLE,
+        allowNull:false,
+        field:'distanceRun'
     },
-    placeRun: {
-      type: sequelize.STRING(150),
-      allowNull: false,
-      field: "placeRun",
+    placeRun:{
+        type:Sequelize.STRING(100),
+        allowNull:false,
+        field:'placeRun'
     },
-    runnerId: { type: sequelize.INTEGER, allowNull: false, field: "runnerId" },
-    runimage: {
-      type: sequelize.STRING(150),
-      allowNull: false,
-      field: "runImage",
+    runnerId:{
+        type:Sequelize.INTEGER,
+        allowNull:false,
+        field:'runnerId'
     },
-  },
-
-  {
+    runImage:{
+        type:Sequelize.STRING(150),
+        allowNull:false,
+        field:'runImage'
+    }
+},{
     db,
-    tableName: "run_tb",
+    tableName:'run_tb',
     timestamps: false,
-    freezeTableName: true,
-  }
-);
+    freezeTableName: true
+})
 
-//export ออกไปเพื่อนำไปใช้งาน
-module.exports = Run;
+//exmport ออกไปเพื่อนำไปใช้งาน
+module.exports = run
